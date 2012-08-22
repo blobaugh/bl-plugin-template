@@ -1,10 +1,13 @@
 <?php
 /*
 Plugin Name: bl-plugin-template
-Description: Custom site functions
-Version: 100000
-Author: FreshMuse
-Author URI: http://freshmuse.com
+Plugin URI: bl-plugin-uri
+Description: bl-plugin-description
+Version: bl-plugin-version
+Author: bl-plugin-author
+Author URI: bl-plugin-author-uri
+License: bl-plugin-license
+License URI: bl-plugin-license-uri
 Text Domain: bl-plugin-template-textdomain
 */
 define( 'BL_TEXTDOMAIN', 'bl-plugin-template-textdomain' );
@@ -12,9 +15,6 @@ define( 'BL_PLUGIN_DIR', trailingslashit( dirname( __FILE__) ) );
 define( 'BL_PLUGIN_URL', trailingslashit ( WP_PLUGIN_URL . "/" . basename( __DIR__  ) ) );
 define( 'BL_PLUGIN_FILE', BL_PLUGIN_DIR . basename( __DIR__  ) . ".php" );
 
-/*
- * Required bl-plugin includes
- */
 require_once( BL_PLUGIN_DIR . 'lib/bl/bl-includes.php' ); // Required to setup bl functionality
 
 

@@ -9,13 +9,17 @@ str_replace( 'BL_PLUGIN_DIR', NEW_PLUGIN_PREFIX, IN all plugin files );
 str_replace( 'BL_PLUGIN_URL', NEW_PLUGIN_PREFIX, IN all plugin files );
 str_replace( 'BL_PLUGIN_FILE', NEW_PLUGIN_PREFIX, IN all plugin files );
 
-str_replace( 'bl-plugin-template-debug-bar', NEW_PLUGIN_PREFIX Debug, IN lib/BLDebugBar.class.php );
-str_replace( 'BLDebugBar', NEW_PLUGIN_PREFIXDebugBar, IN lib/BLDebugBar.class.php );
-
 str_replace( 'bl_debug', NEW_PLUGIN_PREFIX_debug, IN lib/bl/bl-functions.php )
 str_replace( 'bl_dump', NEW_PLUGIN_PREFIX_dump, IN lib/bl/bl-functions.php )
 str_replace( 'bl-wp-admin-css', NEW_PLUGIN_PREFIX_wp-admin-css, IN lib/bl/bl-functions.php )
 str_replace( 'bl-wp-admin-js', NEW_PLUGIN_PREFIX_wp-admin-js, IN lib/bl/bl-functions.php )
+
+str_replace( 'bl_load_debug_bar', NEW_PLUGIN_PREFIX_load_debug_bar, IN lib/BLDebugBar.class.php );
+str_replace( 'bl-plugin-template-debug-bar', NEW_PLUGIN_PREFIX Debug, IN lib/BLDebugBar.class.php );
+str_replace( 'BLDebugBar', NEW_PLUGIN_PREFIXDebugBar, IN lib/BLDebugBar.class.php );
+
+
+
 
 
 rename bl-plugin-template.php to NEW_PLUGIN_NAME.php
