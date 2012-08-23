@@ -14,7 +14,8 @@ require_once( BL_PLUGIN_DIR . 'lib/bl/bl-functions.php' );
 if( is_admin() ) {
 
     // Fancy var_dump
-    require_once( BL_PLUGIN_DIR . 'lib/bl/dBug.php' );
+    if( !class_exists( 'dBug' ) ) 
+        require_once( BL_PLUGIN_DIR . 'lib/bl/dBug.php' );
 
     /*
     * Local extension to debug bar
