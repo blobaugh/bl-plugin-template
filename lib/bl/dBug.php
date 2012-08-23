@@ -48,6 +48,8 @@
 function dBug($var,$forceType="", $file=NULL, $line=NULL) {
 	new dBug($var,$forceType, $file, $line);
 }
+
+if( !class_exists( 'dBug' ) ) {
 class dBug {
 
 	var $xmlDepth=array();
@@ -527,4 +529,5 @@ SCRIPTS;
 	}
 
 }
+} // end if( !class_exists( 'dBug' ) )
 ?>
