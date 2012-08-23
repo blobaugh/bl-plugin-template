@@ -8,9 +8,9 @@ foreach( $_POST AS $k => $v ) {
 
 $fields['prefix'] = str_replace( '-', '_', $fields['slug'] );
 $fields['const_prefix'] = strtoupper( $fields['prefix'] );
-echo '<pre>'; var_dump( $fields ); echo '</pre>';
+//echo '<pre>'; //var_dump( $fields ); //echo '</pre>';
 extract( $fields );
-echo "<p>slug $slug</p>";
+//echo "<p>slug $slug</p>";
 /*
  * This is going to be rather complex. Create a list of files with the strings
  * to be replaced in them. The structure of this array will be
@@ -64,18 +64,18 @@ $plugin_dir = trailingslashit( $new_plugin_folder );
 // Loop through each of the replacements and perform the string replacement 
 foreach ( $replacements AS $file => $replace ) {
     $f = $plugin_dir . $file; // Full system path to plugin file to replace
-    echo "<p>Looking for file $f</p>";
-    echo "<ul>";
+    //echo "<p>Looking for file $f</p>";
+    //echo "<ul>";
     $content = $wp_filesystem->get_contents( $f ); 
     $new_content = $content;
     foreach( $replace AS $k => $v ) {
-        echo "<li>Replacing $k with $v</li>";
+        //echo "<li>Replacing $k with $v</li>";
         $new_content = str_replace( $k, $v, $new_content );
     }
-    echo "</ul>";
+    //echo "</ul>";
     
     $res = $wp_filesystem->put_contents( $f, $new_content );
-    var_dump($res);
+    //var_dump($res);
     
 }
 
@@ -83,31 +83,37 @@ foreach ( $replacements AS $file => $replace ) {
 // Perform replacements that happen in every file
 replace_in_all_files( $plugin_dir, $global_replace );
 
-echo '<pre>'; var_dump($all_files); echo '</pre>';
+$orig_plugin_file = trailingslashit( $new_plugin_folder ) . 'bl-plugin-template.php';
+$new_plugin_file = trailingslashit( $new_plugin_folder ) . $slug . '.php' ;
+$res = $wp_filesystem->move( $orig_plugin_file, $new_plugin_file );
+
+if( !$res ) {
+  bl_debug( 'Unable to move plugin file', "From $orig_plugin_file<br/>To $new_plugin_file", 'error' ); 
+}
 
 
 function replace_in_all_files( $dir, $global_replace ) {
     global $wp_filesystem;
     $dir = trailingslashit( $dir );
-    echo '<pre>'; var_dump($global_replace); echo '</pre>';
-    echo "<p>Looking in $dir</p>";
+    //echo '<pre>'; //var_dump($global_replace); //echo '</pre>';
+    //echo "<p>Looking in $dir</p>";
     $files = $wp_filesystem->dirlist( $dir, false, false );
     foreach( $files AS $f ) {
         $file =  $dir . $f['name'];
         if( 'd' == $f['type'] ) {
             replace_in_all_files( $file, $global_replace );
         } else {
-            echo "<p>Content in file $file</p>";
+            //echo "<p>Content in file $file</p>";
             $content = $wp_filesystem->get_contents( $file ); 
             $new_content = $content;
             foreach( $global_replace AS $k => $v ) {
-                echo "<li>Replacing $k with $v</li>";
+                //echo "<li>Replacing $k with $v</li>";
                 $new_content = str_replace( $k, $v, $new_content );
             }
-            echo "</ul>";
+            //echo "</ul>";
 
             $res = $wp_filesystem->put_contents( $file, $new_content );
-            var_dump($res);
+            //var_dump($res);
         }
     }
 }
