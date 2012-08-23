@@ -28,18 +28,18 @@ if( !function_exists( 'bl_dump' ) ) {
     }
 }
 
-/*
- * Log that the plugin has initialized
- */
-add_action( 'admin_init', 'new_log_init');
-/**
- * Logs that the plugin has started
- * @since 1.0 
- */
-function new_log_init() {
-    $data = get_plugin_data( BL_PLUGIN_FILE );
-    bl_debug( 'Plugin loaded', 'Plugin ' . $data['Name'] . ' successfully loaded' );
-}
+///*
+// * Log that the plugin has initialized
+// */
+//add_action( 'admin_init', 'new_log_init');
+///**
+// * Logs that the plugin has started
+// * @since 1.0 
+// */
+//function new_log_init() {
+//    $data = get_plugin_data( BL_PLUGIN_FILE );
+//    bl_debug( 'Plugin loaded', 'Plugin ' . $data['Name'] . ' successfully loaded' );
+//}
 
 
 
