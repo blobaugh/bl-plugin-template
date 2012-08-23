@@ -26,16 +26,16 @@ require_once( BL_PLUGIN_DIR . 'lib/bl/bl-includes.php' ); // Required to setup b
  * **************************************************************************
  */
 
-add_action( 'init', 'testage' );
-function testage() {
-    global $current_user;
-    //die(BL_PLUGIN_URL);
-   // bl_dump( 'user admin bar pref', get_user_meta( $current_user->ID, 'show_admin_bar_front', true ) );
-    //bl_dump( 'current user info', $current_user);
-    bl_debug( 'plugin file', BL_PLUGIN_FILE );
-    bl_debug( 'wp plugin url', WP_PLUGIN_URL, 'log' );
-    bl_debug( 'plugin url', BL_PLUGIN_URL, 'warning' );
-    bl_debug( 'path to css', BL_PLUGIN_URL . 'css/debug-bar.css', 'error' );
-    bl_debug( 'wtf', 'this is a test of the emergency debugging system', 'notice' );
-    bl_debug( 'plugin file', array('this', 'some', 'stuff'), 'dump' );
-}
+//add_action( 'init', 'testage' );
+//function testage() {
+//    global $current_user;
+//    //die(BL_PLUGIN_URL);
+//   // bl_dump( 'user admin bar pref', get_user_meta( $current_user->ID, 'show_admin_bar_front', true ) );
+//    //bl_dump( 'current user info', $current_user);
+//    bl_debug( 'plugin file', BL_PLUGIN_FILE );
+//    bl_debug( 'wp plugin url', WP_PLUGIN_URL, 'log' );
+//    bl_debug( 'plugin url', BL_PLUGIN_URL, 'warning' );
+//    bl_debug( 'path to css', BL_PLUGIN_URL . 'css/debug-bar.css', 'error' );
+//    bl_debug( 'wtf', 'this is a test of the emergency debugging system', 'notice' );
+//    bl_debug( 'plugin file', array('this', 'some', 'stuff'), 'dump' );
+//}
