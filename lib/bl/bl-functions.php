@@ -1,6 +1,6 @@
 <?php
 
-if( !function_exists( 'bl_debug' ) ) {
+if( !function_exists( 'wpsea_user_debug' ) ) {
     /**
      * Sends debugging data to a custom debug bar extension
      * 
@@ -9,12 +9,12 @@ if( !function_exists( 'bl_debug' ) ) {
      * @param Mixed $data
      * @param String $format Optional - (Default:log) log | warning | error | notice | dump
      */
-    function bl_debug( $title, $data, $format='log' ) { 
-        do_action( 'bl_debug', $title, $data, $format );
+    function wpsea_user_debug( $title, $data, $format='log' ) { 
+        do_action( 'wpsea_user_debug', $title, $data, $format );
     }
 }
 
-if( !function_exists( 'bl_dump' ) ) {
+if( !function_exists( 'wpsea_user_dump' ) ) {
     /**
      * Sends an object to a custom debug bar extension to be dumped with a 
      * fancy var_dump variant
@@ -23,8 +23,8 @@ if( !function_exists( 'bl_dump' ) ) {
      * @param String $title
      * @param Mixed $data 
      */
-    function bl_dump( $title, $data) { 
-        do_action( 'bl_debug', $title, $data, 'dump' );
+    function wpsea_user_dump( $title, $data) { 
+        do_action( 'wpsea_user_debug', $title, $data, 'dump' );
     }
 }
 
@@ -37,8 +37,8 @@ if( !function_exists( 'bl_dump' ) ) {
 // * @since 1.0 
 // */
 //function new_log_init() {
-//    $data = get_plugin_data( BL_PLUGIN_FILE );
-//    bl_debug( 'Plugin loaded', 'Plugin ' . $data['Name'] . ' successfully loaded' );
+//    $data = get_plugin_data( WPSEA_USER_PLUGIN_FILE );
+//    wpsea_user_debug( 'Plugin loaded', 'Plugin ' . $data['Name'] . ' successfully loaded' );
 //}
 
 
@@ -47,7 +47,11 @@ if( !function_exists( 'bl_dump' ) ) {
  * Load stuff that should ONLY happen in wp-admin
  */
 if( is_admin() ) {
-    wp_enqueue_style( 'bl-wp-admin-css', BL_PLUGIN_URL . 'css/wp-admin.css' );
-    wp_register_script('bl-wp-admin-js', BL_PLUGIN_URL.'js/wp-admin.js', array('jquery'));
-    wp_enqueue_script('bl-wp-admin-js');
+    add_action( 'admin_enqueue_scripts', 'bl_admin_enqueue_scripts' );
+}
+
+function bl_admin_enqueue_scripts() {
+    wp_enqueue_style( 'wpsea_user-wp-admin-css', WPSEA_USER_PLUGIN_URL . 'css/wp-admin.css' );
+    wp_register_script('wpsea_user-wp-admin-js', WPSEA_USER_PLUGIN_URL.'js/wp-admin.js', array('jquery'));
+    wp_enqueue_script('wpsea_user-wp-admin-js');
 }
