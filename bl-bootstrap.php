@@ -40,6 +40,7 @@ $replacements = array(
         'bl_dump'                        => $prefix . "_dump",
         'bl-wp-admin-css'                => $prefix . "-wp-admin-css",
         'bl-wp-admin-js'                 => $prefix . "-wp-admin-js",
+        'bl_admin'                       => $prefix . "_admin",
     ),
     'lib/bl/BLDebugBar.class.php' => array(
         'bl_load_debug_bar'             => $prefix . "_load_debug_bar",
