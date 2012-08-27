@@ -1,6 +1,6 @@
 <?php
 
-if( !function_exists( 'wpsea_user_debug' ) ) {
+if( !function_exists( 'bl_debug' ) ) {
     /**
      * Sends debugging data to a custom debug bar extension
      * 
@@ -9,12 +9,12 @@ if( !function_exists( 'wpsea_user_debug' ) ) {
      * @param Mixed $data
      * @param String $format Optional - (Default:log) log | warning | error | notice | dump
      */
-    function wpsea_user_debug( $title, $data, $format='log' ) { 
-        do_action( 'wpsea_user_debug', $title, $data, $format );
+    function bl_debug( $title, $data, $format='log' ) { 
+        do_action( 'bl_debug', $title, $data, $format );
     }
 }
 
-if( !function_exists( 'wpsea_user_dump' ) ) {
+if( !function_exists( 'bl_dump' ) ) {
     /**
      * Sends an object to a custom debug bar extension to be dumped with a 
      * fancy var_dump variant
@@ -23,8 +23,8 @@ if( !function_exists( 'wpsea_user_dump' ) ) {
      * @param String $title
      * @param Mixed $data 
      */
-    function wpsea_user_dump( $title, $data) { 
-        do_action( 'wpsea_user_debug', $title, $data, 'dump' );
+    function bl_dump( $title, $data) { 
+        do_action( 'bl_debug', $title, $data, 'dump' );
     }
 }
 
